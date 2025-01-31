@@ -62,8 +62,7 @@ async function startEc2Instance(label, githubRegistrationToken) {
     IamInstanceProfile: { Name: config.input.iamRoleName },
     TagSpecifications: config.tagSpecifications,
     InstanceMarketOptions: buildMarketOptions(),
-    BlockDeviceMappings: config.input.blockDeviceMappings,
-    KeyName: config.input.keyName,
+    KeyName: config.input.keyName
   };
 
   try {
@@ -72,7 +71,7 @@ async function startEc2Instance(label, githubRegistrationToken) {
     core.info(`AWS EC2 instance ${ec2InstanceId} is started`);
     return ec2InstanceId;
   } catch (error) {
-    core.error('AWS EC2 instance starting error');
+    core.error('AWS EC2 instance starting error: ${error}');
     throw error;
   }
 }
