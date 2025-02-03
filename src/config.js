@@ -16,7 +16,6 @@ class Config {
       runnerHomeDir: core.getInput('runner-home-dir'),
       preRunnerScript: core.getInput('pre-runner-script'),
       marketType: core.getInput('market-type'),
-      blockDeviceMappings: JSON.parse(core.getInput('block-device-mapping')),
       keyName: core.getInput('key-name'),
     };
 
